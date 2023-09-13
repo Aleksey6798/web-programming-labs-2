@@ -1,4 +1,4 @@
-from flask import Flask, redirect
+from flask import Flask, redirect, url_for
 app = Flask(__name__)
 
 @app.route("/")
@@ -52,3 +52,54 @@ def menu():
     </body>
 </html>
 """
+@app.route("/lab1/oak")
+def oak():
+    return '''
+<!doctype html>
+<html>
+    <body>
+        <h1>Дуб</h1>
+        <img src="'''+ url_for('static',filename='oak.jpg') + '''">
+    </body>
+</html>
+'''
+
+@app.route("/lab1/student")
+def student():
+    return '''
+<!doctype html>
+<html>
+    <body>
+        <h1>Носаков Алексей Иванович</h1>
+        <img src="'''+ url_for('static',filename='НГТУ.jpg') + '''">   
+    </body>
+</html>
+'''
+
+@app.route("/lab1/python")
+def python():
+    return '''
+<!doctype html>
+<html>
+    <body>
+        <p>
+        <br />Python — высокоуровневый язык программирования общего назначения с динамической строгой типизацией и автоматическим управлением памятью, 
+        <br />ориентированный на повышение производительности разработчика, 
+        <br />читаемости кода и его качества, а также на обеспечение переносимости написанных на нём программ.</p>
+        <img src="'''+ url_for('static',filename='Питон.jpg') + '''">   
+    </body>
+</html>
+'''
+@app.route("/lab1/CХЭШ")
+def С():
+    return '''
+<!doctype html>
+<html>
+    <body>
+        <p>
+        <br />C# — объектно-ориентированный язык программирования. Разработан в 1998—2001 годах группой инженеров компании Microsoft под руководством 
+        <br />Андерса Хейлсберга и Скотта Вильтаумота как язык разработки приложений для платформы Microsoft .NET Framework.</p>
+        <img src="'''+ url_for('static',filename='сишка.jpg') + '''">   
+    </body>
+</html>
+'''
