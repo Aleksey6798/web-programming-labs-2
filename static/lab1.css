@@ -1,0 +1,75 @@
+body {
+    background-color: rgb(120, 215, 247);
+    color: maroon;
+    font-family: Arial;
+    margin: 0px;
+}
+
+header {
+    background:linear-gradient(to right bottom, black,red,green,yellow);
+    color: lightgreen;
+    padding: 10px;
+    font-size: 16pt;
+    transition: 600ms 1s;
+    
+}
+main {
+    margin: 10px 20px;
+}
+
+footer {
+    background-image: linear-gradient(to left bottom,black,red,green,yellow);
+    color: lightgreen;
+    padding: 10px;
+    font-size: 16pt;
+    text-align: right; 
+    position: fixed;
+    bottom: 0;
+    right: 0;  
+    left: 0;
+}
+
+a {
+    color: green;
+    text-decoration: none;
+    text-shadow: 2px 2px 4px;
+    transition: 300ms;
+}
+a:visited {
+    color: blueviolet;
+}
+
+a:hover {
+    color: red;
+    text-decoration: underline;
+    background-color: white;
+    font-weight: bold;
+
+}
+a:not(:hover) {
+    transition: 1s;
+}
+a:active {
+    color: pink;
+    background-color: green;
+}
+
+header:active {
+    font-size: 30pt;
+
+}
+
+header:hover {
+    color: black;
+    
+}
+
+
+footer:active {
+    font-size: 20pt;
+    transition: 600ms 1s;
+}
+
+footer:hover {
+    color: blue
+}
