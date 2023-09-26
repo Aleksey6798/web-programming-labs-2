@@ -134,4 +134,6 @@ def С():
 @app.route("/lab2/example")
 def example():
     name = 'Алексей Носаков'
-    return render_template('example.html', name=name)
+    numberlab = 'Лабораторная работа 2'
+    numbercurs = '3 курс'
+    return render_template('example.html', name=name, numberlab=numberlab, numbercurs=numbercurs)
