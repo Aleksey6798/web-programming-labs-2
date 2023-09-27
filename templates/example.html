@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Носаков Алексей. {{ numberlab }}</title>
+    <title>{{name}}. {{ numberlab }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 </head>
 <body>
     <header>
-        WEB-программирование, часть 2. {% if numberlab % }Лабораторная работа 2{% endif %}
+        WEB-программирование, часть 2. {% if numberlab %}Лабораторная работа 2{% endif %}
     </header>
     
     <main>
@@ -28,8 +28,18 @@
         {% else %}
             Анонимус,
         {% endif %}
-        {{ group }}, 
-        {{ numbercurs }}, 
+        
+        {% if group %}
+            {{ group }},
+        {% else %}
+            Без группы,
+        {% endif %}
+        
+        {% if numbercurs %}
+            {{ numbercurs }},
+        {% else %}
+            Без курса,
+        {% endif %}
         2023
     </footer>
 </body>
