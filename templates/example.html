@@ -24,6 +24,13 @@
         <li>{{ f.name }}: {{ f.price }} &#8381;</li>
         {% endfor %}
     </ul>
+    
+    <ul>
+        {% for b in books %}
+        <li>{{ b.namebook }}: {{ b.author }}, {{ b.genre }}, {{ b.number_of_pages }}</li>
+        {% endfor %}
+    </ul>
+
     </main>
 
     <footer>
