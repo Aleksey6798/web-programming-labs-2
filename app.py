@@ -6,9 +6,6 @@ app = Flask(__name__)
 def start():
     return redirect("/menu", code=302)
 
-@app.route("/ping")
-def s(): 
-    
 @app.route("/lab1")
 def lab1():
     return """
@@ -153,11 +150,11 @@ def example():
         {'namebook':'Гордость и предубеждение','author':'Джейн Остен', 'genre':'Роман','number_of_pages': 384},
         {'namebook':'Дневник Анны Франк','author':'Анна Франк', 'genre':'Биография','number_of_pages': 296},
         {'namebook':'1984','author':'Джордж Оруэлл', 'genre':'Научная фантастика','number_of_pages': 320},
-        {'namebook':'Гарри Поттер и философский камень','author':'Джоан Роулинг', 'genre':'Фэнтези','number_of_pages':3636},
-        {'namebook':'Властелин колец','author':'Дж.Р.Р.Толкин', 'genre':'','number_of_pages': ''},
-        {'namebook':'Великий Гэтсби','author':'Ф. С. Фицджеральд', 'genre':'','number_of_pages':''},
-        {'namebook':'Паутина Шарлотты','author':'Элвин Брукс Уайт', 'genre':'','number_of_pages':''},
-        {'namebook':'Маленькие женщины','author':'Луиза Мэй Олкотт', 'genre':'','number_of_pages':''},
-        {'namebook':'Хоббит','author':'Дж. Р. Р. Толкин', 'genre':'','number_of_pages':''}
+        {'namebook':'Гарри Поттер и философский камень','author':'Джоан Роулинг', 'genre':'Фэнтези','number_of_pages': 3636},
+        {'namebook':'Властелин колец','author':'Дж.Р.Р.Толкин', 'genre':'Фэнтези','number_of_pages': 752},
+        {'namebook':'Великий Гэтсби','author':'Ф. С. Фицджеральд', 'genre':'Драма','number_of_pages': 256},
+        {'namebook':'Паутина Шарлотты','author':'Элвин Брукс Уайт', 'genre':'Фэнтези','number_of_pages': 288},
+        {'namebook':'Маленькие женщины','author':'Луиза Мэй Олкотт', 'genre':'','number_of_pages': 382},
+        {'namebook':'Хоббит','author':'Дж. Р. Р. Толкин', 'genre':'Фэнтези','number_of_pages': 256}
     ]
-    return render_template('example.html', name=name,numberlab=numberlab,numbercurs=numbercurs, group=group, fruits=fruits)
+    return render_template('example.html', name=name,numberlab=numberlab,numbercurs=numbercurs, group=group, fruits=fruits, books=books)
