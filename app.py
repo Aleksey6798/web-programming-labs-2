@@ -158,3 +158,7 @@ def example():
         {'namebook':'Хоббит','author':'Дж. Р. Р. Толкин', 'genre':'Фэнтези','number_of_pages': 256}
     ]
     return render_template('example.html', name=name,numberlab=numberlab,numbercurs=numbercurs, group=group, fruits=fruits, books=books)
+
+@app.route("/lab2/")
+def lab2():
+        return render_template('lab2.html')
