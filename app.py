@@ -57,7 +57,7 @@ def menu():
         </header>
 
         <h1><a href="/lab1" target="_blank">Лабораторная работа 1</a></h1>
-
+        <h1><a href="/lab2" target="_blank">Лабораторная работа 2</a></h1>
         <footer>
             &copy; Алексей Носаков, ФБИ-13, 3 курс, 2023
         </footer>
@@ -166,3 +166,7 @@ def lab2():
 @app.route('/lab2/hobbies')
 def hob():
     return render_template('hobbies.html')
+
+@app.route('/lab2/base')
+def h():
+    return render_template('base.html')
