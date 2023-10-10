@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 2{% endblock %}
+
+{% block main %}
+    <h1>Како демон из игры DOOM</h1>
+    <img src="{{ url_for('static',filename='Демон_из_Дума.jpg') }}">
+    <div style="position: relative; margin-right: 300px;">
+        <p>Мне очень нравится игра DOOM. В этой игре в качестве противников можно увидеть таких демонов как этот шарик злости</p> 
+    </div>
+
+    <h1>Демон Они</h1>
+    <img src="{{ url_for('static',filename='Демон_Они.jpg') }}" style="width: 500px;height: 500px;">
+    <div style="position: relative; margin-right: 300px;">
+        <p>Также я увлекаюсь японской мифологией. О́ни — в японской мифологии — большие злобные клыкастые и рогатые человекоподобные ёкаи с красной, 
+            голубой или чёрной кожей, живущие в Дзигоку, японском аналоге ада. 
+            Очень сильны и трудноубиваемы, отрубленные части тела прирастают на место. </p> 
+    </div>
+
+    <h1>Просто весьма техногологичная машина</h1>
+    <img src="{{ url_for('static',filename='Машина.jpg') }}" style="width: 1000px;height: 500px;">
+    <div style="position: relative; margin-right: 300px;">
+        <p>Симпатизируют машины особенно с таким иновационным дизайном</p> 
+    </div>
+    
+    <h1>Интерьер</h1>
+    <img src="{{ url_for('static',filename='Мебель.jpg') }}" style="width: 1000px;height: 500px;">
+    <div style="position: relative; margin-right: 300px;">
+        <p>Хотел бы я себе такой интерьер, только вот визуально телевизор устареший, поменять нужно</p> 
+    </div>
+    
+    <h1>Космос</h1>
+    <img src="{{ url_for('static',filename='Чёрная_дыра.jpg') }}" style="width: 1000px;height: 500px;">
+    <div style="position: relative; margin-right: 300px;">
+        <p>Всегда манило что-то бесконечно-вечное и непостижимое как это гиганских размомер чёрная дыра. Надеюсь скоро человечество сможет питать компьютеры от чёрной дыры.</p> 
+    </div>
+    {% endblock %}
+
+
+
+
+    
+    
+

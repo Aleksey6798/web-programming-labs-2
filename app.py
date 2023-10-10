@@ -159,6 +159,10 @@ def example():
     ]
     return render_template('example.html', name=name,numberlab=numberlab,numbercurs=numbercurs, group=group, fruits=fruits, books=books)
 
-@app.route("/lab2/")
+@app.route('/lab2/')
 def lab2():
-        return render_template('lab2.html')
+    return render_template('lab2.html')
+
+@app.route('/lab2/hobbies')
+def hob():
+    return render_template('hobbies.html')
