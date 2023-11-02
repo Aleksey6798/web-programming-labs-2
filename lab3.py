@@ -46,45 +46,38 @@ def success():
 
 @lab3.route('/lab3/ticket')
 def ticket():
-    errors = {}
+    errors = {} 
+    return render_template('ticket.html',errors=errors)
     
+@lab3.route('/lab3/info_ticket')
+def info_ticket():
+    errors = {}
     user = request.args.get('user')
     if user == '':
         errors['user'] = 'Заполните поле!'
     
     typ = request.args.get('typ')
-
+    
     shelf = request.args.get('shelf')
-
+    
     baggage = request.args.get('baggage')
-
+    
     age = request.args.get('age')
     if age == '':
         errors['age'] = 'Заполните поле!'
-
+    
     exit_point = request.args.get('exit_point')
     if exit_point == '':
         errors['exit_point'] = 'Заполните поле!'
-
+    
     destination = request.args.get('destination')
     if destination == '':
         errors['destination'] = 'Заполните поле!'
-
+    
     date = request.args.get('date')
     if date == '':
         errors['date'] = 'Заполните поле!'
     
-    return render_template('ticket.html', user=user, typ=typ, errors=errors, age=age, exit_point=exit_point, destination=destination, date=date, baggage=baggage, shelf=shelf )
-    
-@lab3.route('/lab3/info_ticket')
-def info_ticket():
-    user = request.args.get('user')
-    typ = request.args.get('typ')
-    shelf = request.args.get('shelf')
-    baggage = request.args.get('baggage')
-    age = request.args.get('age')
-    exit_point = request.args.get('exit_point')
-    destination = request.args.get('destination')
-    date = request.args.get('date')
-    errors = {}
+    if len(errors) > 0:
+        return render_template('ticket.html', user=user, typ=typ, errors=errors, age=age, exit_point=exit_point, destination=destination, date=date, baggage=baggage, shelf=shelf )
     return render_template('info_ticket.html', user=user, typ=typ, errors=errors, age=age, exit_point=exit_point, destination=destination, date=date, baggage=baggage, shelf=shelf)

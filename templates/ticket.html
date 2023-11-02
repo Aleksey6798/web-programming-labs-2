@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 3{% endblock %}
+
+{% block main %}
+
+    <h1>Заказ железнодорожного билета</h1>
+    
+    <form action="/lab3/info_ticket">
+        
+        <label>ФИО пассажира:</label>
+        <div>
+            <input type="text" placeholder="Ваше ФИО?" name="user" value="{{ user or '' }}">
+            <span class="errors">{{ errors.user }}</span>
+        </div>
+
+        <label>Тип билета:</label>
+        <div>
+            <select  name="typ">
+                <option value="children" {{ typ == 'children' and 'selected' }}>Детский</option>
+                <option value="adult" {{ typ == 'adult' and 'selected' }}>Взрослый</option>
+            </select>                
+        </div>
+        
+        <label>Полка:</label>
+        <div>
+            <select name="shelf">
+                <option value="lower" {{ shelf == 'lower' and 'selected' }}>Нижняя полка</option>
+                <option value="top" {{ shelf == 'top' and 'selected' }}>Верхняя полка</option>
+                <option value="lateral_upper" {{ shelf == 'lateral_upper' and 'selected' }}>Верхняя боковая</option>
+                <option value="lower_side" {{ shelf == 'lower_side' and 'selected' }}>Нижняя боковая</option>
+            </select>
+        </div>
+        
+        <label>Едите с багажом?</label>
+        <div>
+            <select  name="baggage">
+                <option value="Yes" {{ baggage == 'children' and 'selected' }}>Да</option>
+                <option value="No" {{ baggage == 'adult' and 'selected' }}>Нет</option>
+            </select>                
+        </div>
+        
+        <label>Ваш возраст:</label>
+        <div>
+            <input type="number"  name="age" value="{{ age or '' }}" min="18" max="120" step="1" >
+            <span class="errors">{{ errors.age }}</span>
+        </div>
+
+        <label>Пункт выезда:</label>
+        <div>
+            <input type="text"  name="exit_point" value="{{ exit_point or '' }}" >
+            <span class="errors">{{ errors.exit_point }}</span>
+        </div>
+
+        <label>Пункт назначения:</label>
+        <div>
+            <input type="text"  name="destination" value="{{ destination or '' }}">
+            <span class="errors">{{ errors.destination }}</span>
+        </div>
+
+        <label>Дата поездки:</label>
+        <div>
+            <input type="date"  name="date" value="{{ date or '' }}">
+            <span class="errors">{{ errors.date }}</span>
+        </div>
+
+        <div>
+            <button type="submit">Оформить</button>
+        </div>
+    </form>   
+{% endblock %}
