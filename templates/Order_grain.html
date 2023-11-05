@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 4{% endblock %}
+
+{% block main %}
+    <h1>Заказ зерна</h1>
+    <form method="post">
+        <label for="grain">Выберите зерно:</label>
+        <div>
+            <select id="grain" name="grain">
+                <option value="barley" {{ shelf == 'barley' and 'selected' }}>Ячмень</option>
+                <option value="oats" {{ shelf == 'oats' and 'selected' }}>Овёс</option>
+                <option value="wheat" {{ shelf == 'wheat' and 'selected' }}>Пщеница</option>
+                <option value="rye" {{ shelf == 'rye' and 'selected' }}>Рожь</option>
+            </select>   
+            {% if error_orger %}
+            <p class="errors">{{ error_orger }}</p>
+            {% endif %} 
+        </div>
+        
+        <label for="weight">Укажите вес (тонны):</label>
+        <div>
+            <input type="number" id="weight" name="weight">
+            {% if error_wight %}
+            <p class="errors">{{ error_wight }}</p>
+            {% endif %}
+            {% if discount %}
+            <p class="discount">{{ discount }}</p>
+            {% endif %}
+        </div>
+        <div> 
+            <button type="submit">Оформить заказ</button>
+        </div>
+        
+        <div>
+            {{ Result }}
+        </div>
+    </form>
+{% endblock %}
