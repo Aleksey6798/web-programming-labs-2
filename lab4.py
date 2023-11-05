@@ -30,3 +30,32 @@ def login():
 @lab4.route('/lab4/success')
 def success():
     return render_template('success.html', username=username)
+
+@lab4.route('/lab4/fridge',methods = ['GET','POST'])
+def fridge():
+    error_temperature = None
+    error_temperature1 = None
+    if request.method == 'GET':
+        return render_template('fridge.html')
+    
+    temperature = request.form.get('temperature')
+    
+    if temperature == '':
+        error_temperature = "ошибка: не задана температура"
+    
+    if int(temperature) < -12:
+        error_temperature = "не удалось установить температуру — слишком низкое значение"
+    
+    if int(temperature) > -1:
+        error_temperature = "не удалось установить температуру — слишком высокое значение"
+    
+    if int(temperature) in range(-12,-8):
+        error_temperature1 = "Установлена температура:" + temperature + "°С***"
+    
+    if int(temperature) in range(-8,-4):
+        error_temperature1 = "Установлена температура:" + temperature + "°С**"
+
+    if int(temperature) in range(-4,0):
+        error_temperature1 = "Установлена температура:" + temperature + "°С*"
+
+    return render_template('fridge.html',error_temperature=error_temperature, temperature=temperature, error_temperature1=error_temperature1)
