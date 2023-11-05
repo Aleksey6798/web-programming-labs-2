@@ -6,11 +6,24 @@
     <h1>Cookies</h1>
     <form method="post">
         <div>
-            <label for="username">Выберите цвет:</label>
+            <label for="color">Выберите цвет текста:</label>
             <input type="color" id="color" name="color">
+            
+            <label for="bg_color">Выберите цвет фона:</label>
+            <input type="color" id="bg_color" name="bg_color">
+            {% if error %}
+            <div>{{ error }}</div>
+            {% endif %}
+
+            <label for="font-size">Выберите размер шрифта:</label>
+            <input type="number" id="font-size" name="font-size" value="5" min="5" max="30">
+            {% if error %}
+            <div>{{ error }}</div>
+            {% endif %}
         </div>
         <div>
             <button type="submit">OK</button>
+
         </div>
     </form>
 {% endblock %}

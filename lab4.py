@@ -108,10 +108,20 @@ def Order_grain():
 
 @lab4.route('/lab4/cookies',methods = ['GET','POST'])
 def cookies():
-     if request.method == 'GET':
+    error = None
+    if request.method == 'GET':
         return render_template('cookies.html')
-    
     color = request.form.get('color')
+    bg_color = request.form.get('bg_color')
+    font_size = request.form.get('font_size')
+    font_size = int(font_size)
+    
+    if color == bg_color:
+        error = "Цвет текста не должен совпадать с цветом фона."
+
+    if font_size < 5 or font_size > 30:
+        error = "Размер шрифта должен быть от 5px до 30px."
+    
     headers = {
         'Set-Cookies': 'color=' + color + '; path=/',
         'Location': '/lab4/cookies'
