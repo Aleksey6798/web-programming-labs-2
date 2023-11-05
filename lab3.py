@@ -40,9 +40,9 @@ def pay():
         price += 10
     return render_template('pay.html', price=price)  
 
-@lab3.route('/lab3/success')
-def success():
-    return render_template('success.html')
+#@lab3.route('/lab3/success')
+#def success():
+#    return render_template('success.html')
 
 @lab3.route('/lab3/ticket')
 def ticket():
