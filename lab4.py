@@ -105,3 +105,15 @@ def Order_grain():
         
 
     return render_template('Order_grain.html',grain = grain, weight=weight, error_orger=error_orger,error_wight=error_weight, discount=discount, Result=Result,price1=price1)
+
+@lab4.route('/lab4/cookies',methods = ['GET','POST'])
+def cookies():
+     if request.method == 'GET':
+        return render_template('cookies.html')
+    
+    color = request.form.get('color')
+    headers = {
+        'Set-Cookies': 'color=' + color + '; path=/',
+        'Location': '/lab4/cookies'
+    }
+    return '', 303, headers
