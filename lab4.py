@@ -108,8 +108,8 @@ def Order_grain():
     
     if weight > 50:
         price1 = int(price1)
-        disk = 0.9 * price1
-    
+        price1 = 0.9 * price1
+
     return render_template('orger_success.html',grain = grain, weight=weight, error_orger=error_orger,error_wight=error_weight, discount=discount,price1=price1)
 
 
