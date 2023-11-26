@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block lab %} Лабораторная работа 5 {% endblock %}
+
+{% block main %}
+    <div>
+        <div style="color: blue; font-size: x-large; font-weight: bold; width: 150px; height: 50px;">База знаний</div>
+
+        <div style="color: blue; font-size: large; width: 300; height: 50px; margin-top: -50px; margin-left: 300px">
+        <a href="/lab5/article">Посмотреть заметки</a>
+        <a href="/lab5/new_article">Создать заметки</a>
+        </div>
+        
+        <div>
+            <form action="/lab5/login">
+                <button type="submit">Логин</button>
+            </form>
+            <form action="/lab5/registr">
+                <button type="submit">Регистрация</button>
+            </form>
+        </div>
+
+        {% if username %}
+            <div style="font-weight: bold;margin-top: 10px; color: blue;">{{ username }}</div>
+        {% else %}
+            <div style="font-weight: bold;">Anon</div>
+        {% endif %}
+    </div>
+{% endblock %}
