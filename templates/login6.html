@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block lab %}Лабораторная работа 4{% endblock %}
+{% block lab %}Лабораторная работа 6{% endblock %}
 
 {% block main %}
     <h1>Вход</h1>
@@ -15,11 +15,13 @@
         <div>
             <label for="password">Пароль:</label>
             <input type="password" id="password" name="password" value="{{ password or '' }}">
+            <div>{{ error }}</div>
         </div>
-
+        
         <div>
             <button type="submit">Войти</button>
             <button type="reset">Отмена</button>
         </div>
+        <div>{{ error_username_from }}</div>
     </form>
 {% endblock %}

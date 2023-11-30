@@ -4,6 +4,14 @@ from lab2 import lab2
 from lab3 import lab3
 from lab4 import lab4
 from lab5 import lab5
+from lab6 import lab6
+
+from flask_sqlalchemy import SQLAlchemy
+from Db import db
+from Db.models import users
+from flask_login import LoginManager
+
+
 
 app = Flask(__name__)
 app.secret_key = "123"
@@ -13,46 +21,28 @@ app.register_blueprint(lab3)
 app.register_blueprint(lab4)
 app.register_blueprint(lab5)
 
-@app.route("/lab2/example")
-def example():
-    name = 'Носаков Алексей'
-    numberlab = '2'
-    numbercurs = '3 курс'
-    group = 'ФБИ-13'
-    fruits = [
-        {'name':'яблоки','price': 100},
-        {'name':'груши','price': 120},
-        {'name':'апельсины','price': 80},
-        {'name':'мандарины','price': 95},
-        {'name':'манго','price': 321}
-    ]
-    
-    books = [
-        {'namebook':'Убить пересмешника','author':'Харпер Ли', 'genre':'Роман','number_of_pages': 416},
-        {'namebook':'Гордость и предубеждение','author':'Джейн Остен', 'genre':'Роман','number_of_pages': 384},
-        {'namebook':'Дневник Анны Франк','author':'Анна Франк', 'genre':'Биография','number_of_pages': 296},
-        {'namebook':'1984','author':'Джордж Оруэлл', 'genre':'Научная фантастика','number_of_pages': 320},
-        {'namebook':'Гарри Поттер и философский камень','author':'Джоан Роулинг', 'genre':'Фэнтези','number_of_pages': 3636},
-        {'namebook':'Властелин колец','author':'Дж.Р.Р.Толкин', 'genre':'Фэнтези','number_of_pages': 752},
-        {'namebook':'Великий Гэтсби','author':'Ф. С. Фицджеральд', 'genre':'Драма','number_of_pages': 256},
-        {'namebook':'Паутина Шарлотты','author':'Элвин Брукс Уайт', 'genre':'Фэнтези','number_of_pages': 288},
-        {'namebook':'Маленькие женщины','author':'Луиза Мэй Олкотт', 'genre':'','number_of_pages': 382},
-        {'namebook':'Хоббит','author':'Дж. Р. Р. Толкин', 'genre':'Фэнтези','number_of_pages': 256}
-    ]
-    return render_template('example.html', name=name,numberlab=numberlab,numbercurs=numbercurs, group=group, fruits=fruits, books=books)
 
 
+app.secret_key = "123"
+user_db = "aleksey_knowledge_base_orm"
+host_ip ="127.0.0.1"
+host_port = "5432"
+database_name = "knowledge_base_orm"
+password = "123"
 
-@app.route('/lab2/')
-def lab2():
-    return render_template('lab2.html')
+app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{user_db}:{password}@{host_ip}:{host_port}/{database_name}'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db.init_app(app)
+
+login_manager = LoginManager()
+
+login_manager.login_view = "lab6.login"
+login_manager.init_app(app)
+
+@login_manager.user_loader
+def load_users(user_id):
+    return users.query.get(int(user_id))
+
+app.register_blueprint(lab6)
 
 
-@app.route('/lab2/hobbies')
-def hob():
-    return render_template('hobbies.html')
-
-
-@app.route('/lab2/base')
-def h():
-    return render_template('base.html')
