@@ -14,26 +14,26 @@
     </div>
     <div>
     <a href="/lab5/articles">Посмотреть заметки</a>
-    <a href="/lab5/new_article">Создать заметки</a>
+    <a href="/lab5/newarticle">Создать заметки</a>
     </div>
     <form action="/lab5/login">
         <button class="button1" type="submit">Логин</button>
     </form>
-    <form style="margin-left: 5%;" action="/lab5/registr">
+    <form style="margin-left: 5%;" action="/lab5/registr2">
         <button class="button1" type="submit">Регистрация</button>
     </form>
 
     {% if username %}
     <div style="font-weight: bold;
                 margin-left: 1%;">
-        {{ username }}</div>
+    статьи пользователя,{{ username }}</div>
     {% else %}
     <div style="font-weight: bold;">Anon</div>
         {% endif %}
 
     </div>
 
-    <div>статьи пользователя, {{ username }}</div>
+    
     <h1>Мои статьи</h1>
     <ul>
         {% for article in articles %}

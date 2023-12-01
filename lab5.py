@@ -25,6 +25,10 @@ def dbClose(cursor, connection):
 def lab():
     return render_template("pages.html")
 
+@lab5.route('/lab5/menulab5')
+def l():
+    return render_template("lab5.html")
+
 
 @lab5.route("/lab5/")
 def main():
@@ -54,7 +58,7 @@ def show_user():
 
     dbClose(cur, conn)
 
-    return render_template('lab5.html', users=results)
+    return render_template('user.html', users=results)
 
 @lab5.route('/lab5/menu')
 def lab5_glav():
@@ -163,7 +167,7 @@ def createArticle():
 
             if article_text is None or len(article_text) == 0:
                 errors.append("Заполните текст")
-                return render_template("new_article", errors = errors, username=username)
+                return render_template("new_article.html", errors = errors, username=username)
 
             conn = dbConnect()
             cur = conn.cursor()

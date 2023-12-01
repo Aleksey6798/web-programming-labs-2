@@ -27,9 +27,9 @@ def lab6_glav():
 
 @lab6.route("/lab6/register2", methods=["GET", "POST"])
 def register2():
-    errors = []
-    error_password_form = []
-    error_username_from = []
+    errors = ""
+    error_password_form = ""
+    error_username_from = ""
     
     if request.method == "GET":
         return render_template("register.html")
@@ -38,16 +38,16 @@ def register2():
     password_form = request.form.get("password")
 
     if not (username_from or password_form):
-        errors.append("Пожалуйста заполните все поля")
+        errors = ("Пожалуйста заполните все поля")
     
     if (len(password_form)) < 5:
-        error_password_form.append("Пароль должен быть 5 или больше символов")
+        error_password_form = ("Пароль должен быть 5 или больше символов")
         return render_template('register.html', errors=errors, error_password_form=error_password_form, password_form=password_form)
 
     isUserExist = users.query.filter_by(username=username_from).first()
 
     if isUserExist is not None:
-        error_username_from.append("Пользователь с таким именем уже существует")
+        error_username_from = ("Пользователь с таким именем уже существует")
         return render_template("register.html", error_username_from=error_username_from)
 
     hashedPswd = generate_password_hash(password_form, method='pbkdf2')
