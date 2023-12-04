@@ -2,6 +2,10 @@
 
 {% block lab %} Лабораторная работа 7 {% endblock %}
 
+{% block script %}
+<script src="{{ url_for('static', filename='lab7/drink.js') }}"></script>
+{% endblock %}
+
 {% block main %}
     <div>Заказ напитка</div>
 
@@ -23,8 +27,34 @@
     <label>
         <input type="checkbox"  name="sugar">Сахар
     </label>
-
+    
     <div>
         <button type="button">Заказать</button>
+    </div>
+    <div>
+        <button onclick="getPrice()">Рассчитать цену</button>
+    </div>
+
+    <div id="price"></div>
+
+    <div id="pay" style="display: none;">
+        <div>Номер банковской карты:</div>
+        <label>
+            <input type="text" name="card">
+        </label>
+
+        <div>Имя держателя карты:</div>
+        <label>
+            <input type="text" name="name">
+        </label>
+
+        <div>Номер CVV:</div>
+        <label>
+            <input type="text" name="cvv" size="3">
+        </label>
+
+        <div>
+            <button onclick="pay()">Оплатить</button>
+        </div>    
     </div>
 {% endblock %}
