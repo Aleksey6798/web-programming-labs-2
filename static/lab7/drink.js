@@ -22,7 +22,8 @@ function getPrice() {
             return resp.json();
         })
         .then(function(data) {
-            document.querySelector('#price').innerHTML = 'Цена напитка: ${data.result} руб';
+            var drinkprice = 'Цена напитка:' + data.result + 'руб';
+            document.querySelector('#price').innerHTML = drinkprice;
             document.querySelector('#pay').style.display = '';
         })
 }

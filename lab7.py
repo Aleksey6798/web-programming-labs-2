@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 
 lab7 = Blueprint('lab7',__name__)
 
@@ -7,7 +7,7 @@ def main():
     return render_template('lab7/index.html')
 
 @lab7.route('/lab7/drink')
-def main():
+def main1():
     return render_template('lab7/drink.html')
 
 @lab7.route('/lab7/api', methods = ['POST'])
@@ -19,6 +19,10 @@ def api():
     
     if data['method'] == 'pay':
         return pay(data['params'])
+    
+    if data['method'] == 'pay':
+        return pay(data['params'])
+    
     
     abort(400)
 
@@ -45,8 +49,8 @@ def calculate_price(params):
     return price
 
 def pay(params):
-    card_num = params['card_num']
-    if len(card_num) != 16 or not card_num.isdigit():
+    card = params['card']
+    if len(card) != 16 or not card.isdigit():
         return {"result": None, "error": "Неверный номер карты"}
     
     cvv = params['cvv']
