@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, abort
+from flask import Blueprint, render_template, request, abort, jsonfy
 
 lab8 = Blueprint('lab8',__name__)
 
@@ -14,7 +14,7 @@ courses = [
 
 @lab8.route('/lab8/api/courses/', methods=['GET'])
 def get_courses():
-    return courses
+    return jsonfy(courses)
 
 @lab8.route('/lab8/api/courses/<int:course_num>', methods=['GET'])
 def get_course(course_num):
