@@ -30,7 +30,7 @@ def del_course(course_num):
         return '', 204
 
 @lab8.route('/lab8/api/courses/<int:course_num>', methods=['PUT'])
-def del_course(course_num):
+def put_course(course_num):
     course = request.get_json()
     courses[course_num] = course
     if 0 <= course_num < len(courses):
@@ -38,3 +38,9 @@ def del_course(course_num):
     else:
         abort(404)
     return courses[course_num]
+
+@lab8.route('/lab8/api/courses/', methods=['GET'])
+def add_courses():
+    course = request.get_json()
+    courses.append(course)
+    return {"num": len(courses)-1}
