@@ -7,7 +7,7 @@ function fillCourseList() {
         let tbody = document.getElementById('course-list');
         tbody.innerHTML = '';
         for(let i = 0; i<courses.length; i++){
-            tr = document.createElement('tr');
+            let tr = document.createElement('tr');
 
             let tdName = document.createElement('td');
             tdName.innerText = courses[i].name;
@@ -17,6 +17,9 @@ function fillCourseList() {
             
             let tdPrice = document.createElement('td');
             tdPrice.innerText = courses[i].price || 'бесплатно';
+
+            let tdDATA = document.createElement('td'); 
+            tdDATA.innerText = new Date(courses[i].createdAt).toLocaleDateString();
 
             let editButton = document.createElement('button');
             editButton.innerText = 'редактировать'
@@ -38,7 +41,7 @@ function fillCourseList() {
             tr.append(tdVideos);
             tr.append(tdPrice);
             tr.append(tdActions);
-
+            tr.append(tdDATA);
             tbody.append(tr);
         }
     })
@@ -48,7 +51,7 @@ function deleteCourse(num) {
     if(! confirm('Вы точно хотите удалить курс?'))
         return;
     fetch('/lab8/api/courses/${num}', {method:'DELETE'})
-    .then(function(){
+    .then(function() {
         fillCourseList();
     });
 }
@@ -65,6 +68,12 @@ function cancel() {
 }
 
 function addCourse() {
+    showModal();
+}
+
+function addCourse() {
+    const course = {};
+    delete course.createdAt;
     document.getElementById('num').value = '';
     document.getElementById('name').value = '';
     document.getElementById('videos').value = '';
@@ -80,7 +89,7 @@ function sendCourse() {
         price: document.getElementById('price').value,
     }
     const url = '/lab8/api/courses/${num}';
-    const method = num? 'PUT' : 'POST';
+    const method = num ? 'PUT' : 'POST';
     fetch(url, {
         method: method,
         headers: {"Content-Type": "application/json"},
@@ -97,5 +106,6 @@ function editCourse(num, course) {
     document.getElementById('name').value = course.name;
     document.getElementById('videos').value = course.videos;
     document.getElementById('price').value = course.price;
+    delete course.createdAt;
     showModal();
 }
