@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Форма</h1>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        {{ form.recipient_name.label }} {{ form.recipient_name(size=20) }}<br>
+        {{ form.recipient_gender.label }} {{ form.recipient_gender() }}<br>
+        {{ form.sender_name.label }} {{ form.sender_name(size=20) }}<br>
+        {{ form.submit() }}
+    </form>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Открытка</h1>
+    {% if recipient_gender == 'male' %}
+        <p>Дорогой {{ recipient_name }}, желаю быть счастливым в Новом Году!</p>
+    {% elif recipient_gender == 'female' %}
+        <p>Дорогая {{ recipient_name }}, желаю быть счастливой в Новом Году!</p>
+    {% endif %}
+    <p>С наилучшими пожеланиями, {{ sender_name }}.</p>
+</body>
+</html>
