@@ -68,6 +68,7 @@ def menu():
         <h1><a href="/lab6/glav" target="_blank">Лабораторная работа 6</a></h1>
         <h1><a href="/lab7" target="_blank">Лабораторная работа 7</a></h1>
         <h1><a href="/lab8" target="_blank">Лабораторная работа 8</a></h1>
+        <h1><a href="/lab9" target="_blank">Лабораторная работа 9</a></h1>
         <footer>
             &copy; Алексей Носаков, ФБИ-13, 3 курс, 2023
         </footer>
