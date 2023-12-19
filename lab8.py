@@ -15,7 +15,7 @@ courses = [
 
 @lab8.route('/lab8/api/courses/', methods=['GET'])
 def get_courses():
-    return jsonify(courses)
+    return courses
 
 @lab8.route('/lab8/api/courses/<int:course_num>', methods=['GET'])
 def get_course(course_num):
